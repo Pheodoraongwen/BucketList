@@ -269,6 +269,37 @@
     }
 
     render();
+    async function loadAdventures(){
+
+ const response = await fetch(
+ "http://localhost:3000/api/adventures"
+ );
+
+ const data = await response.json();
+
+ console.log(data);
+
+}
+    async function addAdventure(){
+
+ const value = document.getElementById("input").value;
+
+ await fetch("http://localhost:3000/api/adventures",{
+
+   method:"POST",
+
+   headers:{
+    "Content-Type":"application/json"
+   },
+
+   body: JSON.stringify({
+     text:value
+   })
+
+ });
+
+}
   </script>
 </body>
 </html>
+
